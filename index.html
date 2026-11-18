@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Muhammed Anas Hakkeem — Diploma in Electrical and Electronics Engineering and aspiring Python Full Stack Developer.">
+  <meta name="theme-color" content="#071b15">
+  <title>Muhammed Anas Hakkeem | Portfolio</title>
+  <style>
+    :root{--bg:#071b15;--panel:#0d2920;--panel2:#102f25;--green:#38d996;--mint:#a8f5d2;--white:#f4fff9;--muted:#a9c5b8;--line:rgba(168,245,210,.14);--shadow:0 24px 70px rgba(0,0,0,.28)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;background:radial-gradient(circle at 80% 10%,rgba(56,217,150,.13),transparent 28%),radial-gradient(circle at 10% 55%,rgba(56,217,150,.08),transparent 30%),linear-gradient(135deg,#06150f,#071b15 50%,#081d17)}
+    body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.18;background-image:linear-gradient(rgba(168,245,210,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(168,245,210,.08) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+    a{color:inherit;text-decoration:none}.container{width:min(1120px,calc(100% - 40px));margin:auto}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:20;background:rgba(7,27,21,.76);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:850;letter-spacing:.04em;font-size:1.02rem}.brand span{color:var(--green)}
+    .nav-links{display:flex;gap:27px;color:var(--muted);font-size:.9rem}.nav-links a:hover{color:var(--green)}
+    .menu{display:none;background:none;border:1px solid var(--line);color:var(--white);border-radius:12px;padding:8px 11px;font-size:1.1rem}
+    .hero{min-height:100vh;display:grid;align-items:center;padding:130px 0 80px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:65px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--mint);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:800}
+    .eyebrow:before{content:"";width:27px;height:1px;background:var(--green)}
+    h1{font-size:clamp(2.8rem,6vw,5.8rem);line-height:1.02;letter-spacing:-.065em;margin:22px 0}
+    h1 span{color:var(--green);display:block}
+    .hero p{max-width:610px;color:var(--muted);font-size:1.08rem}
+    .hero-actions{display:flex;align-items:center;gap:14px;margin-top:32px}
+    .round-btn{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(56,217,150,.45);background:rgba(56,217,150,.12);color:var(--mint);transition:.28s ease;position:relative}
+    .round-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .round-btn:hover{transform:translateY(-6px) scale(1.06);background:var(--green);color:#052016;box-shadow:0 12px 32px rgba(56,217,150,.25)}
+    .round-btn:focus-visible,.nav a:focus-visible{outline:2px solid var(--mint);outline-offset:4px}
+    .round-btn[aria-label]:hover:after{content:attr(aria-label);position:absolute;top:64px;white-space:nowrap;font-size:.72rem;background:#102f25;color:var(--white);border:1px solid var(--line);padding:5px 9px;border-radius:7px}
+    .hero-note{font-size:.78rem!important;margin-top:22px;color:#7fa494!important}
+    .portrait-wrap{position:relative;justify-self:center;width:min(360px,78vw);aspect-ratio:1;border-radius:50%;display:grid;place-items:center}
+    .portrait-wrap:before,.portrait-wrap:after{content:"";position:absolute;border:1px solid rgba(56,217,150,.35);border-radius:50%;inset:-18px;animation:orbit 18s linear infinite}
+    .portrait-wrap:after{inset:-37px;border-style:dashed;opacity:.45;animation-direction:reverse;animation-duration:32s}
+    .portrait{width:100%;height:100%;border-radius:50%;border:1px solid rgba(168,245,210,.4);background:linear-gradient(145deg,#174d39,#0c2b20);box-shadow:0 0 0 12px rgba(56,217,150,.04),0 0 90px rgba(56,217,150,.17);overflow:hidden;display:grid;place-items:center;text-align:center;padding:30px;animation:float 5s ease-in-out infinite}
+    .portrait img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:none}
+    .portrait-placeholder .monogram{font-size:5rem;font-weight:900;letter-spacing:-.09em;color:var(--mint)}
+    .portrait-placeholder small{display:block;color:var(--muted);font-size:.75rem;margin-top:8px}
+    .orbit-dot{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--green);box-shadow:0 0 22px var(--green);top:12%;right:8%}
+    section{padding:100px 0}.section-head{margin-bottom:42px}.kicker{color:var(--green);font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}.section-head h2{font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-.045em;margin-top:9px}.section-head p{color:var(--muted);max-width:650px;margin-top:12px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}.glass{background:linear-gradient(145deg,rgba(16,47,37,.88),rgba(9,34,25,.82));border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:var(--shadow)}
+    .about-copy{color:var(--muted)}.about-copy p+p{margin-top:15px}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.stat{padding:22px;border-radius:18px;background:rgba(56,217,150,.07);border:1px solid var(--line)}.stat strong{display:block;color:var(--green);font-size:1.65rem}.stat span{color:var(--muted);font-size:.82rem}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.skill-card{padding:23px;border-radius:18px;background:rgba(13,41,32,.85);border:1px solid var(--line);transition:.3s}.skill-card:hover{transform:translateY(-7px);border-color:rgba(56,217,150,.55);box-shadow:0 18px 35px rgba(0,0,0,.2)}.skill-card h3{font-size:1rem;margin-bottom:13px;color:var(--mint)}.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{font-size:.78rem;color:#cce8da;background:rgba(168,245,210,.08);border:1px solid var(--line);border-radius:999px;padding:6px 10px}.learning{color:#052016;background:var(--green);border:0}
+    .timeline{border-left:1px solid rgba(56,217,150,.45);margin-left:9px;padding-left:28px;display:grid;gap:18px}.timeline-item{position:relative}.timeline-item:before{content:"";position:absolute;width:11px;height:11px;border-radius:50%;background:var(--green);left:-34px;top:8px;box-shadow:0 0 16px rgba(56,217,150,.7)}.timeline-item h3{font-size:1.08rem}.timeline-item p,.timeline-item small{color:var(--muted)}
+    .project-card{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;align-items:center}.project-art{min-height:245px;border-radius:20px;background:radial-gradient(circle at 50% 45%,rgba(56,217,150,.24),transparent 40%),linear-gradient(145deg,#123d2d,#081d16);border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}.project-art svg{width:145px;height:145px;stroke:var(--mint);fill:none;stroke-width:1.2;filter:drop-shadow(0 0 16px rgba(56,217,150,.35))}.project-card p{color:var(--muted);margin:12px 0 18px}
+    .contact-panel{display:flex;align-items:center;justify-content:space-between;gap:30px}.contact-panel p{color:var(--muted);max-width:620px}.contact-actions{display:flex;gap:12px}.contact-actions .round-btn{width:50px;height:50px}
+    footer{padding:28px 0;border-top:1px solid var(--line);color:#789989;font-size:.82rem}.footer-inner{display:flex;justify-content:space-between;gap:20px}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes orbit{to{transform:rotate(360deg)}}
+    @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+    .availability{display:inline-flex;align-items:center;gap:8px;margin-top:25px;color:var(--mint);font-size:.82rem}.availability i{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 12px var(--green);animation:pulse 1.8s infinite}
+    @media(max-width:800px){.hero-grid{grid-template-columns:1fr;text-align:center;gap:55px}.hero p{margin:auto}.eyebrow{justify-content:center}.hero-actions{justify-content:center}.portrait-wrap{grid-row:1;width:min(260px,65vw)}.about-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr 1fr}.project-card{grid-template-columns:1fr}.contact-panel{align-items:flex-start;flex-direction:column}.nav-links{display:none;position:absolute;top:76px;left:0;right:0;padding:20px;background:#081d16;border-bottom:1px solid var(--line);flex-direction:column;gap:15px}.nav-links.open{display:flex}.menu{display:block}}
+    @media(max-width:520px){.container{width:min(100% - 30px,1120px)}section{padding:75px 0}.skills-grid{grid-template-columns:1fr}.glass{padding:23px}.footer-inner{flex-direction:column}.hero{padding-top:115px}.hero-note{font-size:.72rem!important}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">ANAS<span>.</span></a>
+      <button class="menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#project">Project</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow">Engineering · Technology · Innovation</div>
+          <h1>Hi, I'm <span>Muhammed Anas</span> Hakkeem.</h1>
+          <p>Diploma holder in Electrical &amp; Electronics Engineering and aspiring Python Full Stack Developer. I enjoy exploring electronics, building practical solutions, and learning modern web technologies.</p>
+          <div class="availability"><i></i> Open to learning and opportunities</div>
+          <div class="hero-actions" aria-label="Quick contact actions">
+            <a class="round-btn" id="whatsappBtn" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.5 8.2c.3-.6.6-.6 1-.6h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.9 1.3 1.6 2.2 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.5-1.2.7-2 .5-1-.2-2.4-.9-3.8-2.1-1.1-1-2.1-2.4-2.3-3.4-.2-.8.1-1.5.4-2Z"/></svg>
+            </a>
+            <a class="round-btn" id="emailBtn" href="#" aria-label="Email" title="Email">
+              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            </a>
+            <a class="round-btn" id="resumeBtn" href="public/resume.pdf" download aria-label="Download resume" title="Download resume">
+              <svg viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5"/><path d="M4 17v3h16v-3"/></svg>
+            </a>
+          </div>
+          <p class="hero-note">WhatsApp · Email · Download CV — select an icon to continue.</p>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait" id="portrait">
+            <img id="profilePhoto" src="public/assets/profile-photo.png" alt="Portrait of Muhammed Anas Hakkeem">
+            <div class="portrait-placeholder" id="portraitPlaceholder"><div class="monogram">MAH</div><small>Add your portrait at<br>public/assets/profile-photo.png</small></div>
+          </div>
+          <span class="orbit-dot"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">01 / About</div><h2>Curious mind. Practical builder.</h2><p>A little about my background and the direction I'm growing in.</p></div>
+        <div class="about-grid">
+          <div class="glass about-copy reveal">
+            <p>I am a Diploma holder in Electrical and Electronics Engineering with an interest in electrical systems, electronics, and software development.</p>
+            <p>My learning journey includes hands-on technical areas such as wiring, basic electronics repair, and HVAC servicing, alongside growing skills in web development and Python Full Stack technologies.</p>
+            <p>I enjoy learning by building, working with others, and exploring how hardware and software can come together to solve real problems.</p>
+          </div>
+          <div class="glass stat-grid reveal">
+            <div class="stat"><strong>EEE</strong><span>Diploma background</span></div>
+            <div class="stat"><strong>Web</strong><span>Development learning</span></div>
+            <div class="stat"><strong>IoT</strong><span>Project experience</span></div>
+            <div class="stat"><strong>3</strong><span>Languages: Malayalam, English, Tamil</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">02 / Capabilities</div><h2>Skills &amp; technologies</h2><p>A mix of engineering fundamentals and software technologies I am learning and exploring.</p></div>
+        <div class="skills-grid">
+          <article class="skill-card reveal"><h3>Software · Frontend</h3><div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">React.js</span></div></article>
+          <article class="skill-card reveal"><h3>Software · Backend</h3><div class="tags"><span class="tag">Python</span><span class="tag learning">Python Full Stack · Learning</span></div></article>
+          <article class="skill-card reveal"><h3>Electrical &amp; Electronics</h3><div class="tags"><span class="tag">Electrical wiring</span><span class="tag">Audio amplifier assembly</span><span class="tag">Basic board repair</span></div></article>
+          <article class="skill-card reveal"><h3>Engineering tools</h3><div class="tags"><span class="tag">AutoCAD Electrical</span><span class="tag">MATLAB</span></div></article>
+          <article class="skill-card reveal"><h3>Embedded &amp; IoT</h3><div class="tags"><span class="tag">ESP32</span><span class="tag">Microcontrollers</span><span class="tag">Embedded Systems · Learning</span></div></article>
+          <article class="skill-card reveal"><h3>HVAC</h3><div class="tags"><span class="tag">Basic AC fitting</span><span class="tag">Basic servicing</span><span class="tag">NSQF Level 4</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">03 / Journey</div><h2>Education &amp; training</h2><p>The foundation behind my technical interests.</p></div>
+        <div class="glass reveal">
+          <div class="timeline">
+            <div class="timeline-item"><h3>Diploma – Electrical &amp; Electronics Engineering</h3><p>St. Mary's Polytechnic College, Palakkad</p><small>2026</small></div>
+            <div class="timeline-item"><h3>Class 12</h3><p>Gopal Memorial Vocational Higher Secondary School · 60%</p><small>2024</small></div>
+            <div class="timeline-item"><h3>Class 10</h3><p>B.E.M · 70%</p><small>2022</small></div>
+            <div class="timeline-item"><h3>NSQF Level 4 – Field Technician, Air Conditioner</h3><p>Additional qualification</p></div>
+            <div class="timeline-item"><h3>Amphix – Data and Communication Wiring</h3><p>Internship · 12 May 2025 – 31 May 2025</p></div>
+            <div class="timeline-item"><h3>Jamal Sales &amp; Co-operation</h3><p>Sales training · 3 months</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project">
+      <div class="container">
+        <div class="section-head reveal"><div class="kicker">04 / Selected work</div><h2>Featured academic project</h2><p>A practical concept developed as part of my engineering studies.</p></div>
+        <article class="glass project-card reveal">
+          <div class="project-art" aria-hidden="true">
+            <svg viewBox="0 0 160 160"><rect x="34" y="25" width="92" height="110" rx="13"/><path d="M58 25v-9h44v9M50 52h60M50 67h60M50 82h35"/><circle cx="80" cy="108" r="14"/><path d="M80 99v18m-9-9h18M24 139h112M45 135l-8 10m86-10 8 10"/></svg>
+          </div>
+          <div><div class="kicker">IoT · ESP32 · Microcontrollers</div><h3 style="font-size:1.6rem;margin-top:8px">Automatic Medicine Serve</h3><p>A self-movable pill dispenser designed for isolated and bedridden patients, including transplant patients. Developed as a team project using IoT and microcontroller technology.</p><div class="tags"><span class="tag">ESP32</span><span class="tag">IoT</span><span class="tag">Team member</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="glass contact-panel reveal">
+          <div><div class="kicker">05 / Get in touch</div><h2 style="font-size:clamp(1.8rem,4vw,2.8rem);margin:8px 0">Let's connect.</h2><p>Have an opportunity, project idea, or a technical conversation in mind? Reach out using one of the contact icons.</p></div>
+          <div class="contact-actions">
+            <a class="round-btn" id="whatsappBtn2" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8.5 8.2c.3-.6.6-.6 1-.6h.4c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .7.5.9 1.3 1.6 2.2 2.1.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.7-.1l1.7.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.5-1.2.7-2 .5-1-.2-2.4-.9-3.8-2.1-1.1-1-2.1-2.4-2.3-3.4-.2-.8.1-1.5.4-2Z"/></svg></a>
+            <a class="round-btn" id="emailBtn2" href="#" aria-label="Email" title="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Muhammed Anas Hakkeem</span><span>Designed with curiosity &amp; built for the future.</span></div></footer>
+
+  <script>
+    // Update contact details here. These are hidden from the page display,
+    // but public website source code can still be inspected.
+    const CONTACT = {
+      whatsapp: "917736027972",
+      email: "muhdanashakkeem@gmail.com"
+    };
+
+    const whatsappURL = `https://wa.me/${CONTACT.whatsapp}`;
+    const emailURL = `mailto:${CONTACT.email}`;
+    ["whatsappBtn","whatsappBtn2"].forEach(id => document.getElementById(id).href = whatsappURL);
+    ["emailBtn","emailBtn2"].forEach(id => document.getElementById(id).href = emailURL);
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const photo = document.getElementById("profilePhoto");
+    const placeholder = document.getElementById("portraitPlaceholder");
+    photo.addEventListener("load", () => { photo.style.display = "block"; placeholder.style.display = "none"; });
+    photo.addEventListener("error", () => { photo.style.display = "none"; placeholder.style.display = "block"; });
+
+    document.getElementById("resumeBtn").addEventListener("click", (event) => {
+      fetch("public/resume.pdf", {method:"HEAD"}).then(response => {
+        if (!response.ok) {
+          event.preventDefault();
+          alert("Resume PDF is not available yet. Please add your file at public/resume.pdf.");
+        }
+      }).catch(() => {
+        // The normal download link remains available when fetch is restricted.
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded","false");
+    }));
+  </script>
+</body>
+</html>
